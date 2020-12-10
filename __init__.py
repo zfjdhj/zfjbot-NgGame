@@ -2,10 +2,12 @@ from nonebot import on_command, CommandSession, permission as perm, logger
 from .StateMachine import NGFSM
 from .RecieveFromPrivate import SetNG
 from copy import copy
+from hoshino import *
+from hoshino import Service
 
+sv = Service('zfjbot-NgGame')
 
-
-@on_command('NG词语游戏', aliases=('ng', 'NGWordGame'), only_to_me=False)
+@sv.on_command('NG词语游戏', aliases=('ng', 'NGWordGame'), only_to_me=False)
 async def NGWordGame(session: CommandSession):
     sender = copy(session.ctx['sender'])
     if session.is_first_run:
